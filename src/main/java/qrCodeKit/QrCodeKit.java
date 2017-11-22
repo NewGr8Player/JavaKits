@@ -1,4 +1,4 @@
-package barCodeKit;
+package qrCodeKit;
 
 import com.google.zxing.*;
 import com.google.zxing.client.j2se.BufferedImageLuminanceSource;

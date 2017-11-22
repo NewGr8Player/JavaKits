@@ -1,4 +1,4 @@
-package BarCodeKit;
+package barCodeKit;
 
 import org.krysalis.barcode4j.HumanReadablePlacement;
 import org.krysalis.barcode4j.impl.AbstractBarcodeBean;

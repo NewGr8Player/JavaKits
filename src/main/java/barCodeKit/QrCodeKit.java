@@ -23,6 +23,13 @@ public class QrCodeKit {
     private static final int LOGO_WIDTH = 60;/* LOGO宽度 */
     private static final int LOGO_HEIGHT = 60;/* LOGO高度 */
 
+    /**
+     * <p>创建图片(private)</p>
+     * @param content 内容
+     * @param logoPath 路径
+     * @param needCompress 是否压缩
+     * @return BufferedImage对象
+     */
     private static BufferedImage createImage(String content, String logoPath, boolean needCompress) throws Exception {
         Hashtable<EncodeHintType, Object> hints = new Hashtable<>();
         hints.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.H);
@@ -47,7 +54,7 @@ public class QrCodeKit {
     }
 
     /**
-     * 插入LOGO
+     * <p>插入LOGO</p>
      *
      * @param source       二维码图片
      * @param logoPath     LOGO图片地址
@@ -87,8 +94,8 @@ public class QrCodeKit {
     }
 
     /**
-     * 生成二维码(内嵌LOGO)
-     * 二维码文件名随机，文件名可能会有重复
+     * <p>生成二维码(内嵌LOGO)</p>
+     * <p>二维码文件名随机，文件名可能会有重复</p>
      *
      * @param content      内容
      * @param logoPath     LOGO地址
@@ -104,15 +111,14 @@ public class QrCodeKit {
     }
 
     /**
-     * 生成二维码(内嵌LOGO)
-     * 调用者指定二维码文件名
+     * <p>生成二维码(内嵌LOGO)</p>
+     * <p>调用者指定二维码文件名</p>
      *
      * @param content      内容
      * @param logoPath     LOGO地址
      * @param destPath     存放目录
      * @param fileName     二维码文件名
      * @param needCompress 是否压缩LOGO
-     * @throws Exception
      */
     public static String encode(String content, String logoPath, String destPath, String fileName, boolean needCompress) throws Exception {
         BufferedImage image = QrCodeKit.createImage(content, logoPath, needCompress);
@@ -124,8 +130,8 @@ public class QrCodeKit {
     }
 
     /**
-     * 当文件夹不存在时，mkdirs会自动创建多层目录，区别于mkdir．
-     * (mkdir如果父目录不存在则会抛出异常)
+     * <p>当文件夹不存在时，mkdirs会自动创建多层目录，区别于mkdir．</p>
+     * <p>(mkdir如果父目录不存在则会抛出异常)</p>
      *
      * @param destPath 存放目录
      */
@@ -137,48 +143,44 @@ public class QrCodeKit {
     }
 
     /**
-     * 生成二维码(内嵌LOGO)
+     * <p>生成二维码(内嵌LOGO)</p>
      *
      * @param content  内容
      * @param logoPath LOGO地址
      * @param destPath 存储地址
-     * @throws Exception
      */
     public static String encode(String content, String logoPath, String destPath) throws Exception {
         return QrCodeKit.encode(content, logoPath, destPath, false);
     }
 
     /**
-     * 生成二维码
+     * <p>生成二维码</p>
      *
      * @param content      内容
      * @param destPath     存储地址
      * @param needCompress 是否压缩LOGO
-     * @throws Exception
      */
     public static String encode(String content, String destPath, boolean needCompress) throws Exception {
         return QrCodeKit.encode(content, null, destPath, needCompress);
     }
 
     /**
-     * 生成二维码
+     * <p>生成二维码</p>
      *
      * @param content  内容
      * @param destPath 存储地址
-     * @throws Exception
      */
     public static String encode(String content, String destPath) throws Exception {
         return QrCodeKit.encode(content, null, destPath, false);
     }
 
     /**
-     * 生成二维码(内嵌LOGO)
+     * <p>生成二维码(内嵌LOGO)</p>
      *
      * @param content      内容
      * @param logoPath     LOGO地址
      * @param output       输出流
      * @param needCompress 是否压缩LOGO
-     * @throws Exception
      */
     public static void encode(String content, String logoPath, OutputStream output, boolean needCompress)
             throws Exception {
@@ -191,18 +193,16 @@ public class QrCodeKit {
      *
      * @param content 内容
      * @param output  输出流
-     * @throws Exception
      */
     public static void encode(String content, OutputStream output) throws Exception {
         QrCodeKit.encode(content, null, output, false);
     }
 
     /**
-     * 解析二维码
+     * <p>解析二维码</p>
      *
      * @param file 二维码图片
-     * @return
-     * @throws Exception
+     * @return 解析后的字符串
      */
     public static String decode(File file) throws Exception {
         BufferedImage image;
@@ -216,16 +216,14 @@ public class QrCodeKit {
         Hashtable<DecodeHintType, Object> hints = new Hashtable<>();
         hints.put(DecodeHintType.CHARACTER_SET, CHARSET);
         result = new MultiFormatReader().decode(bitmap, hints);
-        String resultStr = result.getText();
-        return resultStr;
+        return result.getText();
     }
 
     /**
      * 解析二维码
      *
      * @param path 二维码图片地址
-     * @return
-     * @throws Exception
+     * @return 解析后的字符串
      */
     public static String decode(String path) throws Exception {
         return QrCodeKit.decode(new File(path));

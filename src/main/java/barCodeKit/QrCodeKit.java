@@ -15,9 +15,15 @@ import java.io.OutputStream;
 import java.util.Hashtable;
 import java.util.Random;
 
+/**
+ * <p>二维码工具类</p>
+ *
+ * @author NewGr8Player
+ * @version 0.1 (2017/11/22)
+ */
 public class QrCodeKit {
-    private static final String CHARSET = "utf-8";
-    private static final String FORMAT = "PNG";
+    private static final String CHARSET = "utf-8";/* 包含文字的编码 */
+    private static final String FORMAT = "PNG";/* 图片格式 */
 
     private static final int QRCODE_SIZE = 300;/* 二维码尺寸 */
     private static final int LOGO_WIDTH = 60;/* LOGO宽度 */

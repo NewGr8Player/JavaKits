@@ -19,7 +19,7 @@ import java.io.*;
  * <p>工具类中所有长度计量单位均为毫米(mm)，请使用工具类<b>UnitConv</b>进行转换</p>
  * <p>参考:org.krysalis.barcode4j.tools.UnitConv</p>
  *
- * @author FengZeming
+ * @author NewGr8Player
  * @version 0.1 (2017/11/21)
  */
 public class BarCodeKit {
